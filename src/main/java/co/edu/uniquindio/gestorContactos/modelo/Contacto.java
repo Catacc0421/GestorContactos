@@ -10,7 +10,10 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 @ToString
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Contacto {
+    @EqualsAndHashCode.Include
+    private String id;
 
     private String nombre;
     private String apellido;

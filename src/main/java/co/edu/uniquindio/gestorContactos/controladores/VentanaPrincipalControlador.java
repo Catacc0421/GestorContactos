@@ -100,8 +100,9 @@ public class VentanaPrincipalControlador implements Initializable {
                     txtCorreo.getText(),
                     txtUrl.getText()
             );
-            
+
             limpiarCampos();
+            actualizarContactos();
             mostrarAlerta("Contacto creado con éxito", Alert.AlertType.INFORMATION);
             tablaContactos.setItems( FXCollections.observableArrayList(contactoPrincipal.listarContactos()) );
         }catch (Exception ex){
@@ -121,7 +122,33 @@ public class VentanaPrincipalControlador implements Initializable {
         alert.show();
     }
     public void eliminarContacto(ActionEvent e){}
-    public void editarContacto(ActionEvent e){}
+    public void editarContacto(ActionEvent e){
+        if(contactoSeleccionado != null) {
+            try {
+                contactoPrincipal.editarContacto(
+                        contactoSeleccionado.getId(),
+                        txtNombre.getText(),
+                        txtApellido.getText(),
+                        txtTelefono.getText(),
+                        txtUrl.getText(),
+                        txtCorreo.getText(),
+                        diaCumpleanos.getValue()
+
+                );
+
+                limpiarCampos();
+                cargarContactos();
+                mostrarAlerta("Contacto actualizado con éxito", Alert.AlertType.INFORMATION);
+            } catch (Exception ex) {
+                mostrarAlerta(ex.getMessage(), Alert.AlertType.ERROR);
+            }
+        }else{
+            mostrarAlerta("Debe seleccionar un contacto de la lista de contactos", Alert.AlertType.WARNING);
+        }
+    }
+    public void actualizarContactos() {
+        contactosObservable.setAll(contactoPrincipal.listarContactos());
+    }
 
     /**
      * Limpia los campos de texto del formulario

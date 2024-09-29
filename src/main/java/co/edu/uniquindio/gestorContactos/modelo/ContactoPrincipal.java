@@ -29,6 +29,7 @@ public class ContactoPrincipal {
             throw new Exception("Todos los campos son obligatorios");
 
         Contacto contacto = Contacto.builder()
+                .id( UUID.randomUUID().toString() ) //Genera un id aleatorio
                 .nombre(nombre)
                 .apellido(apellido)
                 .numeroTelefono(numeroTelefono)
@@ -38,6 +39,29 @@ public class ContactoPrincipal {
                 .build();
 
         contactos.add(contacto);
+    }
+
+    public void editarContacto(String id, String nombre, String apellido, String numeroTelefono, String url, String correo, LocalDate cumpleanos) throws Exception{
+
+        if(nombre.isEmpty() || apellido.isEmpty() || numeroTelefono.isEmpty() || correo.isEmpty() || url.isEmpty())
+            throw new Exception("Todos los campos son obligatorios");
+
+        int posContacto = obtenerContacto(id);
+
+        if(posContacto == -1){
+            throw new Exception("No existe el id proporcionado");
+        }
+
+        Contacto contactoGuardado = contactos.get(posContacto);
+        contactoGuardado.setNombre(nombre);
+        contactoGuardado.setApellido(apellido);
+        contactoGuardado.setCorreo(correo);
+        contactoGuardado.setUrl(url);
+        contactoGuardado.setNumeroTelefono(numeroTelefono);
+        contactoGuardado.setCumpleanos(cumpleanos.atStartOfDay()); //Convierte la fecha a LocalDateTime
+
+        //Actualiza la nota en la lista de notas
+        contactos.set(posContacto, contactoGuardado);
     }
     public ArrayList<String> listarOpciones() {
         ArrayList<String> categorias = new ArrayList<>();
@@ -49,6 +73,16 @@ public class ContactoPrincipal {
     }
     public List<Contacto> listarContactos() {
         return contactos;
+    }
+    private int obtenerContacto(String id){
+
+        for (int i = 0; i < contactos.size(); i++) {
+            if( contactos.get(i).getId().equals(id) ){
+                return i;
+            }
+        }
+
+        return -1;
     }
 
 }
