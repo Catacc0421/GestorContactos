@@ -41,6 +41,18 @@ public class ContactoPrincipal {
         contactos.add(contacto);
     }
 
+    /**
+     * Método que permite al usuario editar un contacto de su lista de contactos
+     * @param id para buscar el contacto
+     * @param nombre nombre del contacto
+     * @param apellido apellido del contacto
+     * @param numeroTelefono telefono del contacto
+     * @param url url del contacto
+     * @param correo correo electronico del contacto
+     * @param cumpleanos cumpleaños del contacto
+     * @throws Exception excepción para validar que no hayan campos vacíos
+     */
+
     public void editarContacto(String id, String nombre, String apellido, String numeroTelefono, String url, String correo, LocalDate cumpleanos) throws Exception{
 
         if(nombre.isEmpty() || apellido.isEmpty() || numeroTelefono.isEmpty() || correo.isEmpty() || url.isEmpty())
@@ -62,6 +74,15 @@ public class ContactoPrincipal {
 
         //Actualiza la nota en la lista de notas
         contactos.set(posContacto, contactoGuardado);
+    }
+    public void eliminarContacto(String id) throws Exception{
+        int posNota = obtenerContacto(id);
+
+        if(posNota == -1){
+            throw new Exception("No existe el id proporcionado");
+        }
+
+        contactos.remove( contactos.get(posNota) );
     }
     public ArrayList<String> listarOpciones() {
         ArrayList<String> categorias = new ArrayList<>();

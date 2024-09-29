@@ -121,7 +121,22 @@ public class VentanaPrincipalControlador implements Initializable {
         alert.setContentText(mensaje);
         alert.show();
     }
-    public void eliminarContacto(ActionEvent e){}
+    public void eliminarContacto(ActionEvent e){
+        if(contactoSeleccionado != null) {
+            try {
+                contactoPrincipal.eliminarContacto(contactoSeleccionado.getId());
+
+                limpiarCampos();
+                cargarContactos();
+                mostrarAlerta("Contacto eliminado correctamente", Alert.AlertType.INFORMATION);
+            } catch (Exception ex) {
+                mostrarAlerta(ex.getMessage(), Alert.AlertType.ERROR);
+            }
+
+        }else{
+            mostrarAlerta("Debe seleccionar un contacto de la lista de contactos", Alert.AlertType.WARNING);
+        }
+    }
     public void editarContacto(ActionEvent e){
         if(contactoSeleccionado != null) {
             try {
