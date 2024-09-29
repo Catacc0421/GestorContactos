@@ -97,5 +97,8 @@
             <Image url="@gratis-png-iconos-de-computadora-google-play-contactos-de-google-de-android-thumbnail.png" />
          </image>
       </ImageView>
+      <Button fx:id="buscarContactoButton" layoutX="501.0" layoutY="306.0" mnemonicParsing="false" onAction="#buscarContacto" style="-fx-background-color: #bff86d;" text="Buscar contacto" />
+      <TextField fx:id="txtBuscar" layoutX="343.0" layoutY="307.0" />
+      <Button fx:id="todosContactosButton" layoutX="620.0" layoutY="306.0" mnemonicParsing="false" onAction="#mostrarContactos" style="-fx-background-color: #6df8d0;" text="Mostrar todos los contactos" />
    </children>
 </AnchorPane>

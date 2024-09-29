@@ -11,9 +11,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class VentanaPrincipalControlador implements Initializable {
+    @FXML
+    private TextField txtBuscar;
     @FXML
     private TextField txtNombre;
     @FXML
@@ -160,6 +163,26 @@ public class VentanaPrincipalControlador implements Initializable {
         }else{
             mostrarAlerta("Debe seleccionar un contacto de la lista de contactos", Alert.AlertType.WARNING);
         }
+    }
+    public void buscarContacto() {
+            String filtro = txtFiltro.getSelectionModel().getSelectedItem();  // Filtro seleccionado (Nombre o Teléfono)
+            String valorBusqueda = txtBuscar.getText();  // Valor ingresado en el campo de búsqueda
+
+            try {
+                List<Contacto> contactosFiltrados = contactoPrincipal.buscarContactos(filtro, valorBusqueda);
+                tablaContactos.setItems(FXCollections.observableArrayList(contactosFiltrados));  // Actualizar la tabla con los contactos filtrados
+            } catch (Exception e) {
+                // Mostrar alerta o mensaje de error en caso de excepción
+                System.out.println("Error al buscar contactos: " + e.getMessage());
+            }
+            limpiarCampos();
+        }
+    public void mostrarContactos() {
+        // Obtiene todos los contactos disponibles en el modelo
+        List<Contacto> todosLosContactos = contactoPrincipal.listarContactos();
+
+        // Actualiza la tabla con todos los contactos
+        tablaContactos.setItems(FXCollections.observableArrayList(todosLosContactos));
     }
     public void actualizarContactos() {
         contactosObservable.setAll(contactoPrincipal.listarContactos());

@@ -1,10 +1,14 @@
 package co.edu.uniquindio.gestorContactos.modelo;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class ContactoPrincipal {
     private final List<Contacto> contactos;
@@ -105,7 +109,32 @@ public class ContactoPrincipal {
 
         return -1;
     }
+    public List<Contacto> buscarContactos(String filtro, String valorBusqueda) throws Exception {
+        List<Contacto> contactosFiltrados = new ArrayList<>();
 
+        if (valorBusqueda.isEmpty()) {
+            throw new Exception("El valor de búsqueda no puede estar vacío");
+        }
+
+        for (Contacto contacto : contactos) {
+            switch (filtro.toUpperCase()) {
+                case "NOMBRE":
+                    if (contacto.getNombre().toLowerCase().contains(valorBusqueda.toLowerCase())) {
+                        contactosFiltrados.add(contacto);
+                    }
+                    break;
+                case "TELEFONO":
+                    if (contacto.getNumeroTelefono().contains(valorBusqueda)) {
+                        contactosFiltrados.add(contacto);
+                    }
+                    break;
+                default:
+                    throw new Exception("Filtro no válido");
+            }
+        }
+
+        return contactosFiltrados;
+    }
 }
 
 
