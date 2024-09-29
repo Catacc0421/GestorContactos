@@ -106,6 +106,7 @@ public class VentanaPrincipalControlador implements Initializable {
             limpiarCampos();
             actualizarContactos();
             mostrarAlerta("Contacto creado con éxito", Alert.AlertType.INFORMATION);
+            limpiarCampos();
             tablaContactos.setItems( FXCollections.observableArrayList(contactoPrincipal.listarContactos()) );
         }catch (Exception ex){
             mostrarAlerta(ex.getMessage(), Alert.AlertType.ERROR);

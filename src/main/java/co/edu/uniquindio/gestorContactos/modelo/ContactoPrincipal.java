@@ -40,6 +40,9 @@ public class ContactoPrincipal {
         if (!esNumeroValido(numeroTelefono)) {
             throw new Exception("El formato del teléfono no es válido, solo puede contener números");
         }
+        if (existeContacto(nombre, apellido, numeroTelefono)) {
+            throw new Exception("Otro contacto con el mismo nombre y número ya existe");
+        }
         Contacto contacto = Contacto.builder()
                 .id( UUID.randomUUID().toString() ) //Genera un id aleatorio
                 .nombre(nombre)
@@ -172,6 +175,16 @@ public class ContactoPrincipal {
 
         // Si pasa todas las verificaciones, es un número válido
         return true;
+    }
+    private boolean existeContacto(String nombre, String apellido, String numeroTelefono) {
+        for (Contacto contacto : contactos) {
+            if (contacto.getNombre().equalsIgnoreCase(nombre)
+                    && contacto.getApellido().equalsIgnoreCase(apellido)
+                    && contacto.getNumeroTelefono().equals(numeroTelefono)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
