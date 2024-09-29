@@ -1,16 +1,11 @@
 package co.edu.uniquindio.gestorContactos.modelo;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 public class ContactoPrincipal {
     private final List<Contacto> contactos;
@@ -96,6 +91,12 @@ public class ContactoPrincipal {
         //Actualiza la nota en la lista de notas
         contactos.set(posContacto, contactoGuardado);
     }
+
+    /**
+     * Método para eliminar un contacto de la lista de contactos
+     * @param id se busca con el id que se creó aleatoriamente para cada contacto
+     * @throws Exception si no encuentra el contacto lanza excepcion
+     */
     public void eliminarContacto(String id) throws Exception{
         int posNota = obtenerContacto(id);
 
@@ -105,6 +106,11 @@ public class ContactoPrincipal {
 
         contactos.remove( contactos.get(posNota) );
     }
+
+    /**
+     * Método para listar las opciones que aparecen en el comboBox del fxml y el controlador
+     * @return retorna un arraylist con las dos categorias que existen para el filtro de busqueda
+     */
     public ArrayList<String> listarOpciones() {
         ArrayList<String> categorias = new ArrayList<>();
         categorias.add("NOMBRE");
@@ -113,9 +119,20 @@ public class ContactoPrincipal {
 
         return categorias;
     }
+
+    /**
+     * Método para listar los contactos
+     * @return retorna la lista de contactos
+     */
     public List<Contacto> listarContactos() {
         return contactos;
     }
+
+    /**
+     * Busca un contacto en la lista de contactos
+     * @param id se busca el contacto con el id que se creo aleatoriamente
+     * @return retorno
+     */
     private int obtenerContacto(String id){
 
         for (int i = 0; i < contactos.size(); i++) {
@@ -126,6 +143,7 @@ public class ContactoPrincipal {
 
         return -1;
     }
+
     public List<Contacto> buscarContactos(String filtro, String valorBusqueda) throws Exception {
         List<Contacto> contactosFiltrados = new ArrayList<>();
 
@@ -152,6 +170,12 @@ public class ContactoPrincipal {
 
         return contactosFiltrados;
     }
+
+    /**
+     * Verifica que el correo que se ingresó esté en el formato válido
+     * @param correo el correo que se ingresa al formulario
+     * @return retorno
+     */
     private boolean esCorreoValido(String correo) {
         // Patrón de regex para correos electrónicos
         String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";

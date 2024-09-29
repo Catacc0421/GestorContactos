@@ -1,10 +1,7 @@
 package co.edu.uniquindio.gestorContactos.modelo;
 
 import lombok.*;
-
-import java.time.Duration;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 @Getter
 @Setter

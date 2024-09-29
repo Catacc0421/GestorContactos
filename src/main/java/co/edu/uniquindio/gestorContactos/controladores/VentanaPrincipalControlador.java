@@ -5,7 +5,6 @@ import co.edu.uniquindio.gestorContactos.modelo.ContactoPrincipal;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -92,7 +91,7 @@ public class VentanaPrincipalControlador implements Initializable {
 
         });
     }
-    public void anadirContacto(ActionEvent e){
+    public void anadirContacto(){
         try {
             contactoPrincipal.agregarContacto(
                     txtNombre.getText(),
@@ -124,7 +123,7 @@ public class VentanaPrincipalControlador implements Initializable {
         alert.setContentText(mensaje);
         alert.show();
     }
-    public void eliminarContacto(ActionEvent e){
+    public void eliminarContacto(){
         if(contactoSeleccionado != null) {
             try {
                 contactoPrincipal.eliminarContacto(contactoSeleccionado.getId());
@@ -140,7 +139,7 @@ public class VentanaPrincipalControlador implements Initializable {
             mostrarAlerta("Debe seleccionar un contacto de la lista de contactos", Alert.AlertType.WARNING);
         }
     }
-    public void editarContacto(ActionEvent e){
+    public void editarContacto(){
         if(contactoSeleccionado != null) {
             try {
                 contactoPrincipal.editarContacto(
