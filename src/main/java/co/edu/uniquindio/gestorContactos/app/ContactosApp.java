@@ -10,7 +10,7 @@ public class ContactosApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        FXMLLoader loader = new FXMLLoader(ContactosApp.class.getResource("/inicio.fxml"));
+        FXMLLoader loader = new FXMLLoader(ContactosApp.class.getResource("/ventanaPrincipal.fxml"));
         Parent parent = loader.load();
 
         Scene scene = new Scene(parent, 1000, 360);

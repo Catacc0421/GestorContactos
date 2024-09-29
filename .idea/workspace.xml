@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d25a662-71dd-4fb8-a0c1-53e5946fcc86" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/gratis-png-iconos-de-computadora-google-play-contactos-de-google-de-android-thumbnail.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/gestorContactos/app/ContactosApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/gestorContactos/app/ContactosApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/gestorContactos/controladores/VentanaPrincipalControlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/gestorContactos/controladores/VentanaPrincipalControlador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/gestorContactos/modelo/Contacto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/gestorContactos/modelo/Contacto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/gestorContactos/modelo/ContactoPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/gestorContactos/modelo/ContactoPrincipal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ventanaPrincipal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ventanaPrincipal.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,11 +41,20 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.ContactosApp.executor": "Run",
+    "Maven.contactos [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
+    "Maven.gestorContactos [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+    "Maven.gestorContactos [org.apache.maven.plugins:maven-clean-plugin:3.2.0:help].executor": "Run",
+    "Maven.gestorContactos [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
+    "Maven.notas [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "nuevosCambios",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/programacion 2/GestorContactos"
+    "last_opened_file_path": "C:/programacion 2/GestorContactos",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -68,5 +82,16 @@
       <updated>1727497993344</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/co/edu/uniquindio/gestorContactos/modelo/ContactoPrincipal.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
