@@ -9,7 +9,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -65,7 +64,7 @@ public class VentanaPrincipalControlador implements Initializable {
         colNombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
         colApellido.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getApellido()));
         colTelefono.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNumeroTelefono()));
-        colCumpleanos.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().obtenerDiferencia()));
+        colCumpleanos.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCumpleanos().toString()));
         colCorreo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCorreo()));
         colPerfil.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUrl()));
 
