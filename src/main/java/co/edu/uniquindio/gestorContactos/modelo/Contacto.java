@@ -22,6 +22,6 @@ public class Contacto {
     private LocalDateTime cumpleanos;
     private String correo;
     private String url;
-    
+
 
 }

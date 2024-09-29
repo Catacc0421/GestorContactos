@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class ContactoPrincipal {
@@ -29,9 +31,15 @@ public class ContactoPrincipal {
      */
     public void agregarContacto(String nombre, String apellido, String numeroTelefono, LocalDate cumpleanos, String correo, String url) throws Exception {
 
-        if(nombre.isEmpty() || apellido.isEmpty() || numeroTelefono.isEmpty() || correo.isEmpty() || url.isEmpty())
+        if(nombre.isEmpty() || apellido.isEmpty() || numeroTelefono.isEmpty() || correo.isEmpty() || url.isEmpty()) {
             throw new Exception("Todos los campos son obligatorios");
-
+        }
+        if (!esCorreoValido(correo)) {
+            throw new Exception("El formato del correo no es válido");
+        }
+        if (!esNumeroValido(numeroTelefono)) {
+            throw new Exception("El formato del teléfono no es válido, solo puede contener números");
+        }
         Contacto contacto = Contacto.builder()
                 .id( UUID.randomUUID().toString() ) //Genera un id aleatorio
                 .nombre(nombre)
@@ -66,6 +74,12 @@ public class ContactoPrincipal {
 
         if(posContacto == -1){
             throw new Exception("No existe el id proporcionado");
+        }
+        if (!esCorreoValido(correo)) {
+            throw new Exception("El formato del correo no es válido");
+        }
+        if (!esNumeroValido(numeroTelefono)) {
+            throw new Exception("El formato del teléfono no es válido, solo puede contener números");
         }
 
         Contacto contactoGuardado = contactos.get(posContacto);
@@ -135,6 +149,31 @@ public class ContactoPrincipal {
 
         return contactosFiltrados;
     }
+    private boolean esCorreoValido(String correo) {
+        // Patrón de regex para correos electrónicos
+        String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(correo);
+        return matcher.matches();
+    }
+    private boolean esNumeroValido(String numeroTelefono) {
+        // Verifica si el número tiene exactamente 10 caracteres
+        if (numeroTelefono.length() != 10) {
+            return false;
+        }
+
+        // Verifica si todos los caracteres son dígitos (del 0 al 9)
+        for (int i = 0; i < numeroTelefono.length(); i++) {
+            char c = numeroTelefono.charAt(i);
+            if (c < '0' || c > '9') {
+                return false; // Si encuentra algún carácter que no es dígito, retorna falso
+            }
+        }
+
+        // Si pasa todas las verificaciones, es un número válido
+        return true;
+    }
+
 }
 
 
