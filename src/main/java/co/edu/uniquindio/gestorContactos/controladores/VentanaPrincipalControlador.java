@@ -8,6 +8,9 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -66,6 +69,23 @@ public class VentanaPrincipalControlador implements Initializable {
         colCumpleanos.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCumpleanos().toString()));
         colCorreo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCorreo()));
         colPerfil.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUrl()));
+
+        colPerfil.setCellFactory(contactoStringTableColumn -> new TableCell<>() {
+
+            final ImageView imageView = new ImageView();
+
+            @Override
+            protected void updateItem(String s, boolean b) {
+                super.updateItem(s, b);
+
+                if(s!=null) {
+                    Image imagen = new Image(s, 50, 50, true, true);
+                    imageView.setImage(imagen);
+                    setGraphic(imageView);
+                }
+
+            }
+        });
 
         //Cargar categorias en el ComboBox
         txtFiltro.setItems( FXCollections.observableList(contactoPrincipal.listarOpciones()) );

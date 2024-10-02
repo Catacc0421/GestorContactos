@@ -88,7 +88,7 @@ public class ContactoPrincipal {
         contactoGuardado.setNumeroTelefono(numeroTelefono);
         contactoGuardado.setCumpleanos(cumpleanos.atStartOfDay()); //Convierte la fecha a LocalDateTime
 
-        //Actualiza la nota en la lista de notas
+        //Actualiza la nota en la lista de contactos
         contactos.set(posContacto, contactoGuardado);
     }
 
