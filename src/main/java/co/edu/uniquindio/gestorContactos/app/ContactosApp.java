@@ -13,7 +13,7 @@ public class ContactosApp extends Application {
         FXMLLoader loader = new FXMLLoader(ContactosApp.class.getResource("/ventanaPrincipal.fxml"));
         Parent parent = loader.load();
 
-        Scene scene = new Scene(parent, 1000, 360);
+        Scene scene = new Scene(parent, 850, 600);
         stage.setScene(scene);
         stage.setTitle("Aplicación contactos");
         //stage.setResizable(false);

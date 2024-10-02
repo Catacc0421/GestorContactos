@@ -1,45 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.collections.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="523.0" prefWidth="831.0" style="-fx-background-color: #b7cef8;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.gestorContactos.controladores.VentanaPrincipalControlador">
+<AnchorPane style="-fx-background-color: #b7cef8;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.gestorContactos.controladores.VentanaPrincipalControlador">
    <children>
-      <Label layoutX="410.0" layoutY="25.0" text="CONTACTOS">
+      <Label layoutX="373.0" layoutY="25.0" text="MIS CONTACTOS">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <Button fx:id="anadirContactoButton" layoutX="501.0" layoutY="112.0" mnemonicParsing="false" onAction="#anadirContacto" style="-fx-background-color: #c6f8b7;" text="Añadir Contacto ">
+      <Button fx:id="anadirContactoButton" layoutX="567.0" layoutY="113.0" mnemonicParsing="false" onAction="#anadirContacto" style="-fx-background-color: #c6f8b7;" text="Añadir Contacto ">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="editarContactoButton" layoutX="501.0" layoutY="153.0" mnemonicParsing="false" onAction="#editarContacto" prefHeight="30.0" prefWidth="131.0" style="-fx-background-color: #f8e3b7;" text="Editar Contacto">
+      <Button fx:id="editarContactoButton" layoutX="567.0" layoutY="153.0" mnemonicParsing="false" onAction="#editarContacto" prefHeight="30.0" prefWidth="131.0" style="-fx-background-color: #f8e3b7;" text="Editar Contacto">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="eliminarContactoButton" layoutX="500.0" layoutY="198.0" mnemonicParsing="false" onAction="#eliminarContacto" style="-fx-background-color: #f86d6d;" text="Eliminar contacto">
+      <Button fx:id="eliminarContactoButton" layoutX="566.0" layoutY="195.0" mnemonicParsing="false" onAction="#eliminarContacto" style="-fx-background-color: #f86d6d;" text="Eliminar contacto">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <TableView fx:id="tablaContactos" layoutX="19.0" layoutY="340.0" prefHeight="178.0" prefWidth="816.0">
-        <columns>
-          <TableColumn fx:id="colNombre" prefWidth="127.99999618530273" text="NOMBRE" />
-          <TableColumn fx:id="colApellido" prefWidth="97.60000610351562" text="APELLIDO" />
-            <TableColumn fx:id="colTelefono" minWidth="0.0" prefWidth="102.40003967285156" text="TELÉFONO" />
-            <TableColumn fx:id="colCumpleanos" prefWidth="152.79998779296875" text="CUMPLEAÑOS" />
-            <TableColumn fx:id="colCorreo" minWidth="0.0" prefWidth="180.0" text="CORREO ELECTRÓNICO" />
-            <TableColumn fx:id="colPerfil" prefWidth="148.80010986328125" text="URL DEL PERFIL" />
-        </columns>
-      </TableView>
        <ComboBox fx:id="txtFiltro" layoutX="171.0" layoutY="306.0" prefHeight="26.0" prefWidth="146.0">
            <items>
                <FXCollections fx:factory="observableArrayList">
@@ -54,7 +55,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <VBox layoutX="71.0" layoutY="88.0" prefHeight="160.0" prefWidth="384.0">
+      <VBox layoutX="71.0" layoutY="88.0" prefHeight="160.0" prefWidth="451.0">
          <children>
             <GridPane prefHeight="164.0" prefWidth="475.0">
               <columnConstraints>
@@ -85,14 +86,14 @@
                   <Label text="URL de perfil:" GridPane.rowIndex="5" />
                   <DatePicker fx:id="diaCumpleanos" prefHeight="26.0" prefWidth="365.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <TextField fx:id="txtNombre" prefHeight="26.0" prefWidth="323.0" GridPane.columnIndex="1" />
-                  <TextField fx:id="txtApellido" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField fx:id="txtTelefono" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="txtApellido" prefHeight="25.0" prefWidth="307.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtTelefono" prefWidth="253.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <TextField fx:id="txtCorreo" prefHeight="40.0" prefWidth="278.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <TextField fx:id="txtUrl" prefHeight="35.0" prefWidth="421.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                </children>
             </GridPane>
          </children></VBox>
-      <ImageView fitHeight="43.0" fitWidth="50.0" layoutX="778.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="59.0" fitWidth="79.0" layoutX="715.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@gratis-png-iconos-de-computadora-google-play-contactos-de-google-de-android-thumbnail.png" />
          </image>
@@ -100,5 +101,15 @@
       <Button fx:id="buscarContactoButton" layoutX="501.0" layoutY="306.0" mnemonicParsing="false" onAction="#buscarContacto" style="-fx-background-color: #bff86d;" text="Buscar contacto" />
       <TextField fx:id="txtBuscar" layoutX="343.0" layoutY="307.0" />
       <Button fx:id="todosContactosButton" layoutX="620.0" layoutY="306.0" mnemonicParsing="false" onAction="#mostrarContactos" style="-fx-background-color: #6df8d0;" text="Mostrar todos los contactos" />
+      <TableView fx:id="tablaContactos" layoutX="19.0" layoutY="340.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="212.0" prefWidth="812.0">
+        <columns>
+          <TableColumn fx:id="colNombre" prefWidth="127.99999618530273" text="NOMBRE" />
+          <TableColumn fx:id="colApellido" prefWidth="97.60000610351562" text="APELLIDO" />
+            <TableColumn fx:id="colTelefono" minWidth="0.0" prefWidth="102.40003967285156" text="TELÉFONO" />
+            <TableColumn fx:id="colCumpleanos" prefWidth="152.79998779296875" text="CUMPLEAÑOS" />
+            <TableColumn fx:id="colCorreo" minWidth="0.0" prefWidth="180.0" text="CORREO ELECTRÓNICO" />
+            <TableColumn fx:id="colPerfil" prefWidth="148.80010986328125" text="FOTO DE PERFIL" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
